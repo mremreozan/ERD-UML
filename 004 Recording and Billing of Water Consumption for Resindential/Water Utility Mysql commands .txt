@@ -1,0 +1,43 @@
+CREATE TABLE Rate(
+RateNo INTEGER not null,
+CONSTRAINT RatePK PRIMARY KEY (RateNo));
+
+CREATE TABLE Customer(
+CustNo INTEGER not null,
+RateNo INTEGER not null,
+CONSTRAINT CustomerPK PRIMARY KEY (CustNo),
+CONSTRAINT RateFK FOREIGN KEY (RateNo) REFERENCES Rate (RateNo));
+
+CREATE TABLE Meter(
+MeterNo INTEGER not null,
+CustNo INTEGER not null,
+CONSTRAINT MeterPK PRIMARY KEY (MeterNo),
+CONSTRAINT CustomerFK FOREIGN KEY (CustNo) REFERENCES Customer (CustNo));
+
+-- tables should be defined in order. we dont mention the table name which will be created down. For example, Reading table mustn't be defined before Bill. Beacause we use Bill table information in the reading table.
+
+CREATE TABLE Bill(
+BillNo INTEGER not null,
+CustNo INTEGER not null,
+CONSTRAINT BillPK PRIMARY KEY (BillNo),
+CONSTRAINT CustomerBillFK FOREIGN KEY (CustNo) REFERENCES Customer (CustNo));   -- foreign name is different CustomerFK because we used same name in the meter table. So, foreign key name can be CustomerBillFK.
+
+CREATE TABLE Reading(
+ReadNo INTEGER not null,
+MeterNo INTEGER not null,
+BillNo INTEGER,			-- Between Bill and Reading Relationship, since bill is optional, BillNo can be Null in the Reading table as a foreigner key.		
+CONSTRAINT ReadingPK PRIMARY KEY (ReadNo),
+CONSTRAINT MeterFK FOREIGN KEY (MeterNo) REFERENCES Meter (MeterNo),
+CONSTRAINT BillFK FOREIGN KEY (BillNo) REFERENCES Bill (BillNo));
+
+
+INSERT INTO `rate` (`RateNo`) VALUES ('102'), ('106'); 
+-- you cant enter customer without rate. So, order is important.
+INSERT INTO `customer` (`CustNo`, `RateNo`) VALUES ('242', '102'), ('215', '102'), ('286', '106');
+INSERT INTO `bill` (`BillNo`, `CustNo`) VALUES ('564', '215'), ('532', '215'), ('579', '286');
+INSERT INTO `meter` (`MeterNo`, `CustNo`) VALUES ('309', '215'), ('356', '215'), ('336', '286'), ('345', '286'), ('375', '242');
+INSERT INTO `reading` (`ReadNo`, `MeterNo`, `BillNo`) VALUES ('625', '309', '564'), ('647', '336', '564'), ('678', '309', '532'), ('612', '345', NULL);
+
+
+ 
+
