@@ -1,4 +1,15 @@
 
-1.	to track lab tests performed by a medical laboratory on clients. The database should track basic client details. The database should track the unique identifier for a lab test. A client can request multiple tests in a visit to the lab. The database only contains clients who have had lab tests performed. Each lab test is administered to one client.
-2.	A test type includes a unique test type identifier. A lab test administered to a client is associated with one test type. A test type can be administered to multiple clients. A test type can exist in the database without ever being administered.
-3.	A test type item includes a unique test item identifier. A test type includes one or more test items. A test item can be part of one or more test types. 
+1.	to track lab tests performed by a medical laboratory on clients. 
+    The database should track basic client details. 
+    The database should track the unique identifier for a lab test. 
+    A client can request multiple tests in a visit to the lab. The database only contains 
+clients who have had lab tests performed. Each lab test is administered to one client.
+
+2.	A test type includes a unique test type identifier. 
+    A lab test administered to a client is associated with one test type. 
+    A test type can be administered to multiple clients. 
+    A test type can exist in the database without ever being administered.
+
+3.	A test type item includes a unique test item identifier. 
+    A test type includes one or more test items. 
+    A test item can be part of one or more test types. 
