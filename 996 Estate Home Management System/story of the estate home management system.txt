@@ -1,0 +1,20 @@
+The Estate Home Management System
+
+
+1.	Define an ERD for the following narrative.  
+	The database should track homes and owners. 
+	A home is either owner occupied or rented.  
+	An owner can possess one or more homes.  
+	Each home has only one owner.	
+2.	Refine the ERD from problem 1 by adding an agent entity type.  
+	Agents represent owners in the sale of a home. 
+	An agent can list many homes, but only one agent can list a home.  
+	When an owner agrees to list a home with an agent, 
+	a commission (percentage of the sales price) and a selling price are determined.
+3.	In the ERD from problem 2, transform the attribute, office identifier, into an entity type. 
+4.	In the ERD from problem 3, add a buyer entity type  An agent can work with many buyers,
+	but a buyer works with only one agent. 
+5.	Revise the ERD from problem 5 by adding an offer entity type.  
+	A buyer makes an offer on a home for a specified sales price. 
+	The offer starts on the submission date and time and expires on the specified date and time. 
+	A unique offer number identifies an offer. A buyer can submit multiple offers for the same home.
