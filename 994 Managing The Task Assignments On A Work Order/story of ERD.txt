@@ -1,0 +1,24 @@
+Managing The Task Assignments On A Work Order. 
+A work order records the set of tasks requested by a customer at a specified location.
+
+•	A customer has a unique customer identifier, a name, 
+		a billing address (street, city, state, and zip), 
+		and a collection of submitted work orders.
+•	A work order has a unique work order number, 
+		a creation date, a date required, a completion date, a customer, 
+		an optional supervising employee, a work address (street, city, state, zip), 
+		and a set of tasks. 
+•	Each task has a unique task identifier, a task name, an hourly rate, and estimated hours. 
+		Tasks are standardized across work orders so that 
+		the same task can be performed on many work orders.
+•	Each task on a work order has a status (not started, in progress, or completed), 
+		actual hours, and a completion date.  
+		The completion date is not entered until the status changes to complete.
+•	The company wants to maintain a list of materials.  
+		The data about materials include a unique material identifier, a name, and an estimated cost. 
+		A material can appear on multiple work orders.
+•	Each work order uses a collection of materials.  
+		A material used on a work order includes the estimated quantity of the material 
+		and the actual quantity of the material used.
+•	The estimated number of hours for a task depends on the work order and task, not on the task alone.  
+		Each task of a work order includes an estimated number of hours.

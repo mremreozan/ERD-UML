@@ -1,0 +1,21 @@
+Create table Customer(CustNo INTEGER not null, CustFirstName varchar(50), CustLastName varchar(50), CustCity varchar(50), CustState varchar(50), CustZip INTEGER, CustBal varchar(50),
+CONSTRAINT CustomerPK PRIMARY KEY (CustNo));
+
+Create table Employee(EmpNo INTEGER not null, supempno INTEGER nut null, EmpFirstName varchar(50), EmpLastName varchar(50), EmpPhone INTEGER , EmpEmail varchar(50), EmpDeptName varchar(50), EmpCommRate INTEGER,
+CONSTRAINT EmployeePK PRIMARY KEY (EmpNo),
+CONSTRAINT EmployeeFK FOREIGN KEY (supempno) REFERENCES Employee(supempno));
+
+Create table Product(ProdNo INTEGER not null, ProdName varchar(50), ProdQOH varchar(50), ProdPrice INTEGER, ProdNextShipDate DATE,
+CONSTRAINT ProductPK PRIMARY KEY (ProdNo));
+
+Create table Order(OrdNo INTEGER not null, CustNo INTEGER not null, EmpNo INTEGER not null, OrdDate DATE, OrdName varchar(50), OrdCity varchar(50), OrdZip INTEGER,
+CONSTRAINT OrderPK PRIMARY KEY (OrdNo),
+CONSTRAINT OrderCustFK FOREIGN KEY (custNo) REFERENCES Customer(custNo),
+CONSTRAINT OrderEmpFK FOREIGN KEY (EmpNo) REFERENCES Employee(EmpNo));
+		
+Create table Product_Order(OrdNo INTEGER not null, ProdNo INTEGER not null,
+CONSTRAINT Product_OrderPK PRIMARY KEY (OrdNo, ProdNo),
+CONSTRAINT Product_OrderOFK FOREIGN KEY (OrdNo) REFERENCES Order(OrdNo),
+CONSTRAINT Product_OrderPFK FOREIGN KEY (ProdNo) REFERENCES Product(ProdNo));
+
+
