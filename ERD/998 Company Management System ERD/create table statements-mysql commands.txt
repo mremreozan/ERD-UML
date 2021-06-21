@@ -18,4 +18,4 @@ CONSTRAINT Product_OrderPK PRIMARY KEY (OrdNo, ProdNo),
 CONSTRAINT Product_OrderOFK FOREIGN KEY (OrdNo) REFERENCES Order(OrdNo),
 CONSTRAINT Product_OrderPFK FOREIGN KEY (ProdNo) REFERENCES Product(ProdNo));
 
-# Emre
+
